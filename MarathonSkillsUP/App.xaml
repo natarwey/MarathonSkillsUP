@@ -1,0 +1,123 @@
+﻿<Application x:Class="MarathonSkillsUP.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:MarathonSkillsUP"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!-- Цвета -->
+            <Color x:Key="BrazilianGreenColor">#00903E</Color>
+            <Color x:Key="BrazilianYellowColor">#FDC100</Color>
+            <Color x:Key="BrazilianBlueColor">#241D70</Color>
+            <Color x:Key="WhiteColor">#FFFFFF</Color>
+            <Color x:Key="LightGrayColor">#EBEBEB</Color>
+            <Color x:Key="GrayColor">#B4B4B4</Color>
+            <Color x:Key="DarkGrayColor">#505050</Color>
+            <Color x:Key="BlackColor">#000000</Color>
+
+            <!-- Кисти -->
+            <SolidColorBrush x:Key="BrazilianGreenBrush" Color="{StaticResource BrazilianGreenColor}"/>
+            <SolidColorBrush x:Key="BrazilianYellowBrush" Color="{StaticResource BrazilianYellowColor}"/>
+            <SolidColorBrush x:Key="BrazilianBlueBrush" Color="{StaticResource BrazilianBlueColor}"/>
+            <SolidColorBrush x:Key="WhiteBrush" Color="{StaticResource WhiteColor}"/>
+            <SolidColorBrush x:Key="LightGrayBrush" Color="{StaticResource LightGrayColor}"/>
+            <SolidColorBrush x:Key="GrayBrush" Color="{StaticResource GrayColor}"/>
+            <SolidColorBrush x:Key="DarkGrayBrush" Color="{StaticResource DarkGrayColor}"/>
+            <SolidColorBrush x:Key="BlackBrush" Color="{StaticResource BlackColor}"/>
+
+            <!-- Шрифты -->
+            <FontFamily x:Key="OpenSansFont">pack://application:,,,/Fonts/#Open Sans</FontFamily>
+
+            <!-- Стили для заголовков -->
+            <Style x:Key="HeaderTextStyle" TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="{StaticResource OpenSansFont}"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Setter Property="FontSize" Value="24"/>
+                <Setter Property="Foreground" Value="{StaticResource BlackBrush}"/>
+                <Setter Property="TextAlignment" Value="Center"/>
+                <Setter Property="Margin" Value="0,10,0,10"/>
+            </Style>
+
+            <!-- Стили для обычного текста -->
+            <Style x:Key="RegularTextStyle" TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="{StaticResource OpenSansFont}"/>
+                <Setter Property="FontWeight" Value="Light"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Foreground" Value="{StaticResource BlackBrush}"/>
+                <Setter Property="TextWrapping" Value="Wrap"/>
+            </Style>
+
+            <!-- Стили для кнопок -->
+            <Style x:Key="GreenButtonStyle" TargetType="Button">
+                <Setter Property="FontFamily" Value="{StaticResource OpenSansFont}"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+                <Setter Property="Background" Value="{StaticResource BrazilianGreenBrush}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource BrazilianGreenBrush}"/>
+                <Setter Property="Padding" Value="15,5"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="MinWidth" Value="150"/>
+                <Setter Property="MinHeight" Value="40"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="1"
+                                    CornerRadius="3">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="#007A34"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style x:Key="BlueButtonStyle" TargetType="Button" BasedOn="{StaticResource GreenButtonStyle}">
+                <Setter Property="Background" Value="{StaticResource BrazilianBlueBrush}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource BrazilianBlueBrush}"/>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="#1A155A"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style x:Key="GrayButtonStyle" TargetType="Button" BasedOn="{StaticResource GreenButtonStyle}">
+                <Setter Property="Background" Value="{StaticResource GrayBrush}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource GrayBrush}"/>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="#999999"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <!-- Стили для текстовых полей -->
+            <Style x:Key="TextBoxStyle" TargetType="TextBox">
+                <Setter Property="FontFamily" Value="{StaticResource OpenSansFont}"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Padding" Value="5"/>
+                <Setter Property="Margin" Value="0,5"/>
+                <Setter Property="BorderBrush" Value="{StaticResource GrayBrush}"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Height" Value="30"/>
+            </Style>
+
+            <!-- Стили для ComboBox -->
+            <Style x:Key="ComboBoxStyle" TargetType="ComboBox">
+                <Setter Property="FontFamily" Value="{StaticResource OpenSansFont}"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Padding" Value="5"/>
+                <Setter Property="Margin" Value="0,5"/>
+                <Setter Property="BorderBrush" Value="{StaticResource GrayBrush}"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Height" Value="30"/>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,58 @@
+﻿<Window x:Class="MarathonSkillsUP.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MarathonSkillsUP"
+        mc:Ignorable="d"
+        Title="Marathon Skills 2016" Height="600" Width="800"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <!-- Верхняя панель -->
+        <Grid Grid.Row="0" Background="{StaticResource DarkGrayBrush}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0" Text="MARATHON SKILLS 2016" 
+                       Foreground="{StaticResource WhiteBrush}" 
+                       FontFamily="{StaticResource OpenSansFont}" 
+                       FontSize="30" FontWeight="Bold" 
+                       VerticalAlignment="Center" 
+                       Margin="20,0,0,0"/>
+
+            <Button x:Name="BackButton" Grid.Column="0" Content="Назад" 
+                    Style="{StaticResource GrayButtonStyle}" 
+                    HorizontalAlignment="Left" VerticalAlignment="Bottom" 
+                    Margin="20,0,0,10" Click="BackButton_Click" 
+                    Visibility="Collapsed"/>
+
+            <Button x:Name="LogoutButton" Grid.Column="2" Content="Logout" 
+                    Style="{StaticResource GrayButtonStyle}" 
+                    HorizontalAlignment="Right" VerticalAlignment="Bottom" 
+                    Margin="0,0,20,10" Click="LogoutButton_Click" 
+                    Visibility="Collapsed"/>
+        </Grid>
+
+        <!-- Основное содержимое - Frame для страниц -->
+        <Frame Grid.Row="1" x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
+
+        <!-- Нижняя панель -->
+        <Grid Grid.Row="2" Background="{StaticResource DarkGrayBrush}">
+            <TextBlock x:Name="CountdownLabel" 
+                       Foreground="{StaticResource WhiteBrush}" 
+                       FontFamily="{StaticResource OpenSansFont}" 
+                       FontSize="14" 
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center"/>
+        </Grid>
+    </Grid>
+</Window>
