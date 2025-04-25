@@ -1,0 +1,219 @@
+﻿<Page x:Class="MarathonSkillsUP.Pages.MarathonInfoPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MarathonSkillsUP.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800"
+      Title="Информация о Marathon Skills 2016">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="50,20">
+            <TextBlock Text="Информация о Marathon Skills 2016" 
+                       Style="{StaticResource HeaderTextStyle}" 
+                       Margin="0,0,0,20"/>
+
+            <TabControl Height="450">
+                <!-- Вкладка "О Marathon Skills 2016" -->
+                <TabItem Header="О Marathon Skills 2016">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel Margin="10">
+                            <TextBlock Text="Marathon Skills 2016 - Москва, Россия" 
+                                       FontFamily="{StaticResource OpenSansFont}" 
+                                       FontSize="18" FontWeight="Bold" 
+                                       Margin="0,0,0,10"/>
+
+                            <TextBlock Style="{StaticResource RegularTextStyle}" 
+                                       TextWrapping="Wrap" 
+                                       Margin="0,0,0,10">
+                                Marathon Skills - ежегодное мероприятие, проводимое в разных странах по всему миру. В этом году оно проводится в Москве, Россия.
+                            </TextBlock>
+
+                            <TextBlock Style="{StaticResource RegularTextStyle}" 
+                                       TextWrapping="Wrap" 
+                                       Margin="0,0,0,10">
+                                Мероприятие включает в себя полный марафон (42 км), полумарафон (21 км) и забег на 5 км. Все средства, собранные в результате мероприятия, идут на благотворительные нужды.
+                            </TextBlock>
+
+                            <TextBlock Style="{StaticResource RegularTextStyle}" 
+                                       TextWrapping="Wrap" 
+                                       Margin="0,0,0,10">
+                                В прошлом году в Marathon Skills приняли участие более 20 000 бегунов из 55 стран, и было собрано более $1 000 000 для различных благотворительных организаций.
+                            </TextBlock>
+
+                            <TextBlock Text="Дата и время" 
+                                       FontFamily="{StaticResource OpenSansFont}" 
+                                       FontSize="16" FontWeight="Bold" 
+                                       Margin="0,10,0,5"/>
+
+                            <TextBlock Style="{StaticResource RegularTextStyle}" 
+                                       TextWrapping="Wrap" 
+                                       Margin="0,0,0,10">
+                                Marathon Skills 2016 пройдет в воскресенье, 24 ноября 2016 года. Начало марафона в 6:00.
+                            </TextBlock>
+
+                            <TextBlock Text="Место проведения" 
+                                       FontFamily="{StaticResource OpenSansFont}" 
+                                       FontSize="16" FontWeight="Bold" 
+                                       Margin="0,10,0,5"/>
+
+                            <TextBlock Style="{StaticResource RegularTextStyle}" 
+                                       TextWrapping="Wrap" 
+                                       Margin="0,0,0,10">
+                                Старт и финиш марафона будут находиться в Центральном парке Москвы. Маршрут пройдет через исторический центр города, мимо основных достопримечательностей.
+                            </TextBlock>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+
+                <!-- Вкладка "Виды марафонов" -->
+                <TabItem Header="Виды марафонов">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel Margin="10">
+                            <TextBlock Text="Виды марафонов" 
+                                       FontFamily="{StaticResource OpenSansFont}" 
+                                       FontSize="18" FontWeight="Bold" 
+                                       Margin="0,0,0,10"/>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <!-- Полный марафон -->
+                                <StackPanel Grid.Column="0" Margin="0,0,10,0">
+                                    <TextBlock Text="Полный марафон (42 км)" 
+                                               FontFamily="{StaticResource OpenSansFont}" 
+                                               FontSize="16" FontWeight="Bold" 
+                                               Margin="0,0,0,5"/>
+
+                                    <Image Source="/Images/Marathon/full_marathon.jpg" 
+                                           Height="150" 
+                                           Stretch="Uniform" 
+                                           Margin="0,0,0,10"/>
+
+                                    <TextBlock Style="{StaticResource RegularTextStyle}" 
+                                               TextWrapping="Wrap" 
+                                               Margin="0,0,0,10">
+                                        Полный марафон - это классическая дистанция в 42,195 км. Это испытание на выносливость, которое требует серьезной подготовки. Маршрут проходит через весь город.
+                                    </TextBlock>
+
+                                    <TextBlock Style="{StaticResource RegularTextStyle}" 
+                                               TextWrapping="Wrap" 
+                                               Margin="0,0,0,10">
+                                        Стоимость участия: $145
+                                    </TextBlock>
+                                </StackPanel>
+
+                                <!-- Полумарафон -->
+                                <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                                    <TextBlock Text="Полумарафон (21 км)" 
+                                               FontFamily="{StaticResource OpenSansFont}" 
+                                               FontSize="16" FontWeight="Bold" 
+                                               Margin="0,0,0,5"/>
+
+                                    <Image Source="/Images/Marathon/half_marathon.jpg" 
+                                           Height="150" 
+                                           Stretch="Uniform" 
+                                           Margin="0,0,0,10"/>
+
+                                    <TextBlock Style="{StaticResource RegularTextStyle}" 
+                                               TextWrapping="Wrap" 
+                                               Margin="0,0,0,10">
+                                        Полумарафон - это половина классической дистанции, 21,0975 км. Это отличный вариант для тех, кто не готов к полному марафону, но хочет испытать себя.
+                                    </TextBlock>
+
+                                    <TextBlock Style="{StaticResource RegularTextStyle}" 
+                                               TextWrapping="Wrap" 
+                                               Margin="0,0,0,10">
+                                        Стоимость участия: $75
+                                    </TextBlock>
+                                </StackPanel>
+                            </Grid>
+
+                            <!-- Забег на 5 км -->
+                            <StackPanel Margin="0,20,0,0">
+                                <TextBlock Text="Забег на 5 км" 
+                                           FontFamily="{StaticResource OpenSansFont}" 
+                                           FontSize="16" FontWeight="Bold" 
+                                           Margin="0,0,0,5"/>
+
+                                <Image Source="/Images/Marathon/5km_run.jpg" 
+                                       Height="150" 
+                                       Stretch="Uniform" 
+                                       Margin="0,0,0,10"/>
+
+                                <TextBlock Style="{StaticResource RegularTextStyle}" 
+                                           TextWrapping="Wrap" 
+                                           Margin="0,0,0,10">
+                                    Забег на 5 км - это короткая дистанция, подходящая для начинающих бегунов или тех, кто предпочитает более короткие дистанции. Маршрут проходит по живописной части города.
+                                </TextBlock>
+
+                                <TextBlock Style="{StaticResource RegularTextStyle}" 
+                                           TextWrapping="Wrap" 
+                                           Margin="0,0,0,10">
+                                    Стоимость участия: $20
+                                </TextBlock>
+                            </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+
+                <!-- Вкладка "Карта марафона" -->
+                <TabItem Header="Карта марафона">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                        <StackPanel Margin="10">
+                            <TextBlock Text="Карта марафона" 
+                                       FontFamily="{StaticResource OpenSansFont}" 
+                                       FontSize="18" FontWeight="Bold" 
+                                       Margin="0,0,0,10"/>
+
+                            <TextBlock Style="{StaticResource RegularTextStyle}" 
+                                       TextWrapping="Wrap" 
+                                       Margin="0,0,0,10">
+                                Маршрут марафона проходит через исторический центр Москвы, мимо основных достопримечательностей города. Ниже представлена карта маршрута.
+                            </TextBlock>
+
+                            <Image Source="/Images/Marathon/marathon_map.jpg" 
+                                   Stretch="Uniform" 
+                                   Margin="0,0,0,10"/>
+
+                            <Button Content="Интерактивная карта" 
+                                    Style="{StaticResource GreenButtonStyle}" 
+                                    Width="200" 
+                                    HorizontalAlignment="Center" 
+                                    Margin="0,10,0,0" 
+                                    Click="InteractiveMapButton_Click"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+
+                <!-- Вкладка "Фотографии" -->
+                <TabItem Header="Фотографии">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel Margin="10">
+                            <TextBlock Text="Фотографии предыдущих марафонов" 
+                                       FontFamily="{StaticResource OpenSansFont}" 
+                                       FontSize="18" FontWeight="Bold" 
+                                       Margin="0,0,0,10"/>
+
+                            <WrapPanel x:Name="PhotosPanel">
+                                <!-- Фотографии будут добавлены программно -->
+                            </WrapPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+            </TabControl>
+
+            <!-- Кнопка назад -->
+            <Button Content="Назад" 
+                    Style="{StaticResource GrayButtonStyle}" 
+                    Width="100" 
+                    HorizontalAlignment="Left" 
+                    Margin="0,20,0,0" 
+                    Click="BackButton_Click"/>
+        </StackPanel>
+    </ScrollViewer>
+</Page>
