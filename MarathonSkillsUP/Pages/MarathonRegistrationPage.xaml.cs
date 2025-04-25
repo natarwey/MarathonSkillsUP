@@ -53,13 +53,13 @@ namespace MarathonSkillsUP.Pages
             UpdateCosts();
         }
 
-        private void DonationAmountTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        private void DonationAmountTextBox_PreviewTextInput(object sender, TextCompositionEventArgs inputEventArgs)
         {
             // Разрешаем только цифры и точку
-            e.Handled = !char.IsDigit(e.Text[0]) && e.Text[0] != '.';
+            inputEventArgs.Handled = !char.IsDigit(inputEventArgs.Text[0]) && inputEventArgs.Text[0] != '.';
         }
 
-        private void DonationAmountTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void DonationAmountTextBox_TextChanged(object sender, TextChangedEventArgs textChangedEventArgs)
         {
             if (decimal.TryParse(DonationAmountTextBox.Text, out decimal amount))
             {
@@ -68,7 +68,7 @@ namespace MarathonSkillsUP.Pages
             }
         }
 
-        private void CharityInfoButton_Click(object sender, RoutedEventArgs e)
+        private void CharityInfoButton_Click(object sender, RoutedEventArgs charityInfoEventArgs)
         {
             string selectedCharity = CharityComboBox.SelectedItem?.ToString();
             if (string.IsNullOrEmpty(selectedCharity))
@@ -128,7 +128,7 @@ namespace MarathonSkillsUP.Pages
                 Height = 30,
                 HorizontalAlignment = HorizontalAlignment.Center
             };
-            closeButton.Click += (s, e) => popup.Close();
+            closeButton.Click += (s, closeEventArgs) => popup.Close();
 
             // Добавляем элементы в панель
             panel.Children.Add(titleLabel);
@@ -203,7 +203,7 @@ namespace MarathonSkillsUP.Pages
             ErrorMessageTextBlock.Visibility = Visibility.Collapsed;
         }
 
-        private void RegisterButton_Click(object sender, RoutedEventArgs e)
+        private void RegisterButton_Click(object sender, RoutedEventArgs registerEventArgs)
         {
             if (ValidateForm())
             {
@@ -221,7 +221,7 @@ namespace MarathonSkillsUP.Pages
             }
         }
 
-        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        private void CancelButton_Click(object sender, RoutedEventArgs cancelEventArgs)
         {
             NavigationService.GoBack();
         }

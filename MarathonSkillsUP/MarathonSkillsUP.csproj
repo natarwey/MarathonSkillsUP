@@ -64,6 +64,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DatabaseManager.cs" />
     <Compile Include="Data\Charity.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -335,9 +336,14 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <Resource Include="Images\teatro-municipal.jpg" />
+    <Resource Include="Images\ibirapuera-park-lake.jpg" />
+    <Resource Include="Images\marathon-image.jpg" />
+    <Resource Include="Images\banco-banespa.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

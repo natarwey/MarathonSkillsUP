@@ -24,53 +24,41 @@ namespace MarathonSkillsUP.Pages
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            // Для тестирования используем радиокнопки
-            if (RunnerRadioButton.IsChecked == true)
-            {
-                UserManager.TestLogin(UserManager.UserRole.Runner);
-                NavigationService.Navigate(new RunnerMenuPage());
-            }
-            else if (CoordinatorRadioButton.IsChecked == true)
-            {
-                UserManager.TestLogin(UserManager.UserRole.Coordinator);
-                NavigationService.Navigate(new CoordinatorMenuPage());
-            }
-            else if (AdministratorRadioButton.IsChecked == true)
-            {
-                UserManager.TestLogin(UserManager.UserRole.Administrator);
-                NavigationService.Navigate(new AdministratorMenuPage());
-            }
-            else
-            {
-                // Обычный процесс входа
-                string email = EmailTextBox.Text;
-                string password = PasswordBox.Password;
+            string email = EmailTextBox.Text.Trim();
+            string password = PasswordBox.Password;
 
-                if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+            // Проверка на пустые поля
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("Пожалуйста, введите email и пароль.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            // Аутентификация пользователя
+            if (UserManager.Instance.AuthenticateUser(email, password))
+            {
+                // Перенаправление в зависимости от роли
+                if (UserManager.Instance.IsRunner())
                 {
-                    App.ShowMessageBox("Пожалуйста, введите email и пароль.", "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
+                    NavigationService.Navigate(new RunnerMenuPage());
                 }
-
-                if (UserManager.Login(email, password))
+                else if (UserManager.Instance.IsCoordinator())
                 {
-                    switch (UserManager.CurrentUserRole)
-                    {
-                        case UserManager.UserRole.Runner:
-                            NavigationService.Navigate(new RunnerMenuPage());
-                            break;
-                        case UserManager.UserRole.Coordinator:
-                            NavigationService.Navigate(new CoordinatorMenuPage());
-                            break;
-                        case UserManager.UserRole.Administrator:
-                            NavigationService.Navigate(new AdministratorMenuPage());
-                            break;
-                    }
+                    NavigationService.Navigate(new CoordinatorMenuPage());
+                }
+                else if (UserManager.Instance.IsAdministrator())
+                {
+                    NavigationService.Navigate(new AdministratorMenuPage());
                 }
                 else
                 {
-                    App.ShowMessageBox("Неверный email или пароль.", "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Неизвестная роль пользователя.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    UserManager.Instance.LogoutUser();
                 }
+            }
+            else
+            {
+                MessageBox.Show("Неверный email или пароль.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

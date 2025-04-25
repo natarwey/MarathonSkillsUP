@@ -88,7 +88,7 @@ namespace MarathonSkillsUP.Pages
             TotalRunnersTextBlock.Text = "123";
         }
 
-        private void ReportButton_Click(object sender, RoutedEventArgs e)
+        private void ReportButton_Click(object sender, RoutedEventArgs reportEventArgs)
         {
             // В реальном приложении здесь был бы код для генерации отчета
             // Для демонстрации создаем простое окно с отчетом
@@ -167,7 +167,7 @@ namespace MarathonSkillsUP.Pages
                 Height = 30,
                 HorizontalAlignment = HorizontalAlignment.Center
             };
-            printButton.Click += (s, e) => App.ShowMessageBox("Отправка на печать...", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+            printButton.Click += (s, printEventArgs) => App.ShowMessageBox("Отправка на печать...", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
 
             // Добавляем элементы в панель
             panel.Children.Add(titleLabel);
@@ -183,12 +183,12 @@ namespace MarathonSkillsUP.Pages
             reportWindow.ShowDialog();
         }
 
-        private void ReceiptButton_Click(object sender, RoutedEventArgs e)
+        private void ReceiptButton_Click(object sender, RoutedEventArgs receiptEventArgs)
         {
             NavigationService.Navigate(new InventoryReceiptPage());
         }
 
-        private void BackButton_Click(object sender, RoutedEventArgs e)
+        private void BackButton_Click(object sender, RoutedEventArgs backEventArgs)
         {
             NavigationService.GoBack();
         }
